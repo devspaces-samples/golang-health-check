@@ -4,3 +4,5 @@ override:
   containers:
     - name: theia-ide
       memoryLimit: 1280Mi
+      cpuLimit: 1505m
+      cpuRequest: 101m
