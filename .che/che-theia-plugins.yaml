@@ -1,5 +1,0 @@
-- id: golang/go/latest
-  override:
-    preferences:
-      go.lintTool: 'golangci-lint'
-      go.lintFlags: '--fast'
