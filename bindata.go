@@ -22,7 +22,7 @@ import (
 func bindataRead(data []byte, name string) ([]byte, error) {
 	gz, err := gzip.NewReader(bytes.NewBuffer(data))
 	if err != nil {
-		return nil, fmt.Errorf("Read %q: %v", name, err)
+		return nil, fmt.Errorf("read %q: %v", name, err)
 	}
 
 	var buf bytes.Buffer
@@ -30,7 +30,7 @@ func bindataRead(data []byte, name string) ([]byte, error) {
 	clErr := gz.Close()
 
 	if err != nil {
-		return nil, fmt.Errorf("Read %q: %v", name, err)
+		return nil, fmt.Errorf("read %q: %v", name, err)
 	}
 	if clErr != nil {
 		return nil, err
@@ -85,7 +85,7 @@ func publicIndexHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "public/index.html", size: 4132, mode: os.FileMode(420), modTime: time.Unix(1545906047, 0)}
+	info := bindataFileInfo{name: "public/index.html", size: 4132, mode: os.FileMode(0644), modTime: time.Unix(1545906047, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -186,8 +186,8 @@ type bintree struct {
 }
 
 var _bintree = &bintree{nil, map[string]*bintree{
-	"public": &bintree{nil, map[string]*bintree{
-		"index.html": &bintree{publicIndexHtml, map[string]*bintree{}},
+	"public": {nil, map[string]*bintree{
+		"index.html": {publicIndexHtml, map[string]*bintree{}},
 	}},
 }}
 
