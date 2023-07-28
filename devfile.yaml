@@ -5,7 +5,10 @@ components:
   - name: tools
     container:
       image: registry.redhat.io/devspaces/udi-rhel8:3.9
-      memoryLimit: 2Gi
+      memoryLimit: '2Gi'
+      memoryRequest: '1Gi'
+      cpuLimit: '1'
+      cpuRequest: '0.5'
       mountSources: true
       env:
         - name: GOCACHE
@@ -20,6 +23,7 @@ components:
 commands:
   - id: build
     exec:
+      label: 1.Build
       component: tools
       workingDir: ${PROJECTS_ROOT}/golang-health-check
       commandLine: go build
@@ -27,6 +31,7 @@ commands:
         kind: build
   - id: run
     exec:
+      label: 2.Run
       component: tools
       workingDir: ${PROJECTS_ROOT}/golang-health-check
       commandLine: ./golang-health-check
