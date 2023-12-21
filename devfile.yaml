@@ -18,7 +18,7 @@ components:
       endpoints:
         - exposure: public
           name: 'health-check-endpoint'
-          protocol: http
+          protocol: https
           targetPort: 8080
 commands:
   - id: build
