@@ -17,7 +17,7 @@ components:
           value: /tmp/.cache
       endpoints:
         - exposure: public
-          name: 'health-check-endpoint'
+          name: 'health-check'
           protocol: https
           targetPort: 8080
 commands:
