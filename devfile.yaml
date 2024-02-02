@@ -1,4 +1,4 @@
-schemaVersion: 2.1.0
+schemaVersion: 2.2.2
 metadata:
   name: golang
 components:
@@ -17,7 +17,7 @@ components:
           value: /tmp/.cache
       endpoints:
         - exposure: public
-          name: 'health-check-endpoint'
+          name: 'health-check'
           protocol: https
           targetPort: 8080
 commands:
